@@ -27,7 +27,7 @@ def on_message(ws,message):
         print('시작 가격 :', price)
         print('현재 가격 :', liveprice)
         print('시작 가격보다 ',percent,'% 변화')
-        if percent > 3.0:
+        if percent > 5.0:
             query = {
               'market': 'KRW-CHZ',
               'side': 'ask', #ask : sell
@@ -55,7 +55,7 @@ def on_message(ws,message):
             res = requests.post('https://api.upbit.com/v1/orders', params=query, headers=headers)
             print(res.json())
 
-        elif percent < -3.0:
+        elif percent < -4.0:
             query = {
               'market': 'KRW-CHZ',
               'side': 'ask', #ask : sell
